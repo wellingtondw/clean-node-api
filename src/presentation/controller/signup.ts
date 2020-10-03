@@ -1,6 +1,8 @@
+import { HttpRequest, HttpResponse}from '../protocols/http'
+
 export class SignUpController {
 
-  handle(httpRequest: any): any {
+  handle(httpRequest: HttpRequest): HttpResponse {
     const {name, email} = httpRequest.body
 
     if(!name) {
@@ -17,6 +19,10 @@ export class SignUpController {
       }
     }
 
+    return {
+      statusCode: 400,
+      body: {}
+    }
 
   }
 
